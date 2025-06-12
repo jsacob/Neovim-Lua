@@ -1,4 +1,4 @@
--- File kinda looks messy, spaced weirdly but I'll fix it at somepoint just dont want to right now because i still need some packages, and im also still getting used to using    lazy.nvim
+
 
 -- Located: .config/nvim/lua/plugins/plug.lua
 
@@ -82,15 +82,6 @@ return {
 {
     "mason-org/mason.nvim",
     opts = {}
-},
-
-{
-	"andweeb/presence.nvim",
-	config = function()
-		-- .config/nvim/lua/config/presence.lua
-		require("config.presence")
-	end,
-	lazy = false,
 },
 
 }
