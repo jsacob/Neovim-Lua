@@ -1,3 +1,7 @@
+-- File kinda looks messy, spaced weirdly but I'll fix it at somepoint just dont want to right now because i still need some packages, and im also still getting used to using    lazy.nvim
+
+-- Located: .config/nvim/lua/plugins/plug.lua
+
 --[[ 
 1. lazy: whether to lazy-load the plugin
 
@@ -13,7 +17,7 @@
 return {
 	
 -- the colorscheme should be available when starting Neovim  
-   {
+{
     "folke/tokyonight.nvim",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
@@ -53,6 +57,7 @@ return {
   end,
 },
 
+--[[ # Needs to be fixed not sure of the issue just don't have the energy right now, not priority.
 {
   "iamcco/markdown-preview.nvim",
   lazy = false,
@@ -61,9 +66,31 @@ return {
   build = "cd app && yarn install",
   config = function()
     vim.g.mkdp_filetypes = { "markdown" } 
-	vim.g.mkdp_browser = '/usr/bin/firefox'
   end,
   ft = { "markdown" },
+},
+]]
+
+{
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
+},
+
+{
+    "mason-org/mason.nvim",
+    opts = {}
+},
+
+{
+	"andweeb/presence.nvim",
+	config = function()
+		-- .config/nvim/lua/config/presence.lua
+		require("config.presence")
+	end,
+	lazy = false,
 },
 
 }
