@@ -1,3 +1,4 @@
+-- Located: .config/nvim/lua/config/lazy.lua
 -- Bootstrap lazy.nvim
 vim.g.mapleader = " "
 
