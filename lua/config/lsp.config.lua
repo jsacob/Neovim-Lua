@@ -1,3 +1,0 @@
--- Prettier Config For Languges 
---
--- Possible Lsp's
