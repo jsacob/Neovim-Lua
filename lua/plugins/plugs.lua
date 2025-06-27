@@ -18,6 +18,7 @@ return {
 	
 -- the colorscheme should be available when starting Neovim  
 {
+<<<<<<< HEAD
     "folke/tokyonight.nvim",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
@@ -26,6 +27,18 @@ return {
       vim.cmd([[colorscheme tokyonight]])
     end,
 }, 
+=======
+  "navarasu/onedark.nvim",
+  priority = 1000, -- make sure to load this before all the other start plugins
+  config = function()
+    require('onedark').setup {
+      style = 'deep'
+    }
+    -- Enable theme
+    require('onedark').load()
+  end
+},
+>>>>>>> a647890 (NewTheme)
 
   {
     "dstein64/vim-startuptime",
@@ -84,4 +97,47 @@ return {
     opts = {}
 },
 
+<<<<<<< HEAD
+=======
+{
+  "hrsh7th/nvim-cmp",
+  dependencies = {
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "L3MON4D3/LuaSnip",
+    {
+      "garymjr/nvim-snippets",
+      dependencies = { "rafamadriz/friendly-snippets" },
+      opts = {
+        friendly_snippets = true,
+      },
+    },
+  },
+  config = function()
+    local cmp = require("cmp")
+    local luasnip = require("luasnip")
+
+    cmp.setup({
+      snippet = {
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
+      },
+      mapping = cmp.mapping.preset.insert({
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<Tab>"] = cmp.mapping.select_next_item(),
+        ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+      }),
+      sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+        { name = "path" },
+        { name = "snippets" },
+      }),
+    })
+  end,
+}
+
+>>>>>>> a647890 (NewTheme)
 }
