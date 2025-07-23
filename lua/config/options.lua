@@ -1,8 +1,8 @@
 -- Located: .config/nvim/lua/config/options.lua
 
 -- theme & transparency
-vim.cmd.colorscheme("unokai")
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.cmd.colorscheme("onedark")
+--vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 
 -- Basic Settings 
 vim.opt.number = true                              -- Line numbers
