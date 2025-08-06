@@ -1,8 +1,88 @@
--- Entry Point ./config/nvim/init.lua
-require("config.lazy")
-require("lazy").setup("plugins")
-require("config.options")
-require("config.keybinds")
-require("config.lsp")
-local lspconfig = require('lspconfig')
+vim.cmd.colorscheme("vague")
+vim.o.termguicolors = true
+vim.opt.number = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.shell = 'zsh'
+vim.opt.wrap = false
+vim.opt.linebreak = true
+vim.opt.syntax = 'on'
+vim.opt.visualbell = true
+vim.opt.autoindent = true
+vim.opt.cursorline = true
+vim.opt.clipboard:append("unnamedplus")
+vim.opt.showmatch = true
 
+vim.g.mapleader = " "
+vim.keymap.set('n', '<leader>w', ':write<CR>')
+vim.keymap.set('n', '<leader>q', ':quit<CR>')
+vim.keymap.set('n', '<leader>e', ':Explore<CR>')
+vim.keymap.set('n', '<leader>fifr', ':%s')
+vim.keymap.set('n', '<leader>so', ':source<CR>')
+vim.keymap.set('n', '<leader>ot', ':terminal<CR>')
+
+local Plug = vim.fn['plug#']
+vim.call('plug#begin', vim.fn.stdpath('data') .. '/plugged')
+
+Plug 'vague2k/vague.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'm4xshen/autoclose.nvim'
+
+vim.call('plug#end')
+
+require("autoclose").setup({
+	keys = {
+		["$"] = { escape = true, close = true, pair = "$$", disabled_filetypes = {} },
+	},
+})
+
+require('mason').setup()
+require('mason-lspconfig').setup({
+	ensure_installed = { "lua_ls", "clangd" },
+	handlers = {
+		function(server)
+			require('lspconfig')[server].setup({
+				capabilities = require('cmp_nvim_lsp').default_capabilities()
+			})
+		end,
+		lua_ls = function()
+			require('lspconfig').lua_ls.setup({
+				settings = {
+					Lua = {
+						runtime = { version = 'LuaJIT' },
+						diagnostics = { globals = { 'vim' } },
+						workspace = { library = { vim.env.VIMRUNTIME } }
+					}
+				},
+				capabilities = require('cmp_nvim_lsp').default_capabilities()
+			})
+		end
+	}
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*.lua, *.cpp",
+	callback = function()
+		vim.lsp.buf.format()
+	end,
+})
+
+vim.diagnostic.config({
+	virtual_text = true,
+	float = { border = "rounded" },
+})
+
+local cmp = require('cmp')
+cmp.setup({
+	sources = {
+		{ name = 'nvim_lsp' },
+	},
+	mapping = cmp.mapping.preset.insert({
+		['<CR>'] = cmp.mapping.confirm({ select = true }),
+	}),
+	snippet = { expand = function() end },
+})
