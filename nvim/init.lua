@@ -17,23 +17,20 @@ vim.g.mapleader = " "
 vim.keymap.set('n', '<leader>w', ':write<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')
 vim.keymap.set('n', '<leader>e', ':Explore<CR>')
-vim.keymap.set('n', '<leader>fifr', ':%s')
+vim.keymap.set('n', '<leader>fifr', ':%s/')
 vim.keymap.set('n', '<leader>so', ':source<CR>')
 vim.keymap.set('n', '<leader>ot', ':terminal<CR>')
 
-local Plug = vim.fn['plug#']
-vim.call('plug#begin', vim.fn.stdpath('data') .. '/plugged')
-
-Plug 'aserowy/tmux.nvim'
-Plug 'vague2k/vague.nvim'
-Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'm4xshen/autoclose.nvim'
-
-vim.call('plug#end')
+vim.cmd [[packadd packer.nvim]]
+require('packer').startup(function(use)
+	use 'vague2k/vague.nvim'
+	use 'neovim/nvim-lspconfig'
+	use 'williamboman/mason.nvim'
+	use 'williamboman/mason-lspconfig.nvim'
+	use 'hrsh7th/nvim-cmp'
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'm4xshen/autoclose.nvim'
+end)
 
 require("autoclose").setup({
 	keys = {
