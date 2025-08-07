@@ -16,7 +16,10 @@ in
   # Docker
   virtualisation.docker.enable = true;
 
-  programs.hyprland.enable = true;
+  programs.hyprland ={
+  	enable = true;
+	xwayland.enable = true;
+  };
   programs.zsh.enable = true;
   programs.nix-ld.enable = true;
 
@@ -25,9 +28,17 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-    ];
+    ];	
 
   #------------------------------------------------------------------------------
+
+programs.steam = {
+  enable = true;
+  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+};
+#------------------------------------------------------------------------------
 
   # Nvidia
  services.xserver.videoDrivers = [ "nvidia" ];
@@ -161,6 +172,7 @@ in
   nmap
   alacritty
   zsh
+  nixfmt
 
   #System
   fish # Shell
@@ -190,6 +202,7 @@ in
   vesktop 
   nix-search-cli
   godot
+  steam
   ];
 
   #------------------------------------------------------------------------------
