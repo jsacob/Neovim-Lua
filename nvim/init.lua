@@ -1,5 +1,5 @@
 vim.o.termguicolors = true
-vim.cmd.colorscheme("vague")
+vim.cmd.colorscheme("onedark")
 vim.cmd([[highlight Normal guibg=none ctermbg=none]])
 
 vim.opt.number = true
@@ -32,6 +32,7 @@ require('packer').startup(function(use)
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'm4xshen/autoclose.nvim'
+	use 'joshdick/onedark.vim'
 end)
 
 require("autoclose").setup({

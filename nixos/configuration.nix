@@ -30,30 +30,27 @@ in
   #------------------------------------------------------------------------------
 
   # Nvidia
-  hardware.graphics = {
-     enable = true;
-  };
+ services.xserver.videoDrivers = [ "nvidia" ];
 
-hardware.nvidia = {
-  modesetting.enable = true;
-  powerManagement.enable = true;
-  powerManagement.finegrained = false;
-  open = false;
-  nvidiaSettings = true;
-  package = config.boot.kernelPackages.nvidiaPackages.beta;
-  dynamicBoost.enable = true;
-  prime = {
-    reverseSync.enable = true;
-    offload = {
-      enable = false;
-      enableOffloadCmd = true;
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
+    dynamicBoost.enable = true;
+    prime = {
+      reverseSync.enable = true;
+      offload = {
+        enable = false;
+        enableOffloadCmd = true;
+      };
+      sync.enable = false;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
     };
-    sync.enable = false;
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
   };
-};
-
   #------------------------------------------------------------------------------
 
   # Bootloader.
