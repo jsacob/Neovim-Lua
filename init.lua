@@ -24,6 +24,7 @@ vim.keymap.set('n', '<leader>ot', ':terminal<CR>')
 local Plug = vim.fn['plug#']
 vim.call('plug#begin', vim.fn.stdpath('data') .. '/plugged')
 
+Plug 'aserowy/tmux.nvim'
 Plug 'vague2k/vague.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
@@ -65,7 +66,7 @@ require('mason-lspconfig').setup({
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*.lua, *.cpp",
+	pattern = { "*.lua", ".*.cpp" },
 	callback = function()
 		vim.lsp.buf.format()
 	end,
