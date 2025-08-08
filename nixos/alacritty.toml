@@ -1,0 +1,26 @@
+[window]
+opacity = 0.7 
+
+# [colors.primary]
+# background = "#2e2e2e"  
+# foreground = "#f1f1f0"  
+#
+# [colors.normal]
+# black   = "#2e2e2e"
+# red     = "#ff5c57"
+# green   = "#5af78e"
+# yellow  = "#f3f99d"
+# blue    = "#57c7ff"
+# magenta = "#ff6ac1"
+# cyan    = "#9aedfe"
+# white   = "#f1f1f0"
+#
+# [colors.bright]
+# black   = "#686868"
+# red     = "#ff5c57"
+# green   = "#5af78e"
+# yellow  = "#f3f99d"
+# blue    = "#57c7ff"
+# magenta = "#ff6ac1"
+# cyan    = "#9aedfe"
+# white   = "#ffffff"
