@@ -2,27 +2,17 @@
 opacity = 1
 
 [font]
-size = 14
-# [colors.primary]
-# background = "#2e2e2e"  
-# foreground = "#f1f1f0"  
-#
-# [colors.normal]
-# black   = "#2e2e2e"
-# red     = "#ff5c57"
-# green   = "#5af78e"
-# yellow  = "#f3f99d"
-# blue    = "#57c7ff"
-# magenta = "#ff6ac1"
-# cyan    = "#9aedfe"
-# white   = "#f1f1f0"
-#
-# [colors.bright]
-# black   = "#686868"
-# red     = "#ff5c57"
-# green   = "#5af78e"
-# yellow  = "#f3f99d"
-# blue    = "#57c7ff"
-# magenta = "#ff6ac1"
-# cyan    = "#9aedfe"
-# white   = "#ffffff"
+size = 13.25
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+blink_interval = 350
+blink_timeout = 5
+
+[colors]
+cursor = {text = "#FFFFFF", cursor = "#1e90ff"}
+footer_bar = { foreground = "#ED0800", background = "#FFFFFF"}
+
+[colors.primary]
+background = "#000000"
+
