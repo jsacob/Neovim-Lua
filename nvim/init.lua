@@ -66,12 +66,12 @@ require('mason-lspconfig').setup({
 })
 
 require("lspconfig").clangd.setup({
-	cmd = { "/run/current-system/sw/bin/clangd" }, -- NixOS path
+	cmd = { "/nix/store/g1zsg6imkxm4k53gywnkvklypnyc2kmw-system-path/bin/clangd" },
 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = { "*.lua", ".*.cpp" },
+	pattern = { "*.lua" },
 	callback = function()
 		vim.lsp.buf.format()
 	end,
@@ -106,5 +106,4 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = transparent_popup,
 })
 
--- Run once right now to apply immediately
 transparent_popup()

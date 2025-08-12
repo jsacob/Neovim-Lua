@@ -38,7 +38,7 @@ programs.steam = {
   dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
 };
-#------------------------------------------------------------------------------
+  #------------------------------------------------------------------------------
 
   # Nvidia
  services.xserver.videoDrivers = [ "nvidia" ];
@@ -133,6 +133,11 @@ programs.steam = {
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   #------------------------------------------------------------------------------
 
@@ -158,18 +163,14 @@ programs.steam = {
   gnumake
   timer
   jdk21
-  libgccjit
   kitty
   sutils
   tree-sitter
-  gcc
-  glibc 
-  llvmPackages_21.libcxxClang
-  llvmPackages_21.clang
-  llvmPackages_21.clang-tools
+  # llvmPackages_21.libcxxClang
+  # llvmPackages_21.clang
+  # llvmPackages_21.clang-tools
   binutils
   flatpak
-  nmap
   alacritty
   zsh
   nixfmt
@@ -203,7 +204,15 @@ programs.steam = {
   nix-search-cli
   godot
   steam
+
+  #C++ tools
+  llvmPackages_21.libcxx      # The C++ standard library (libc++)
+  llvmPackages_21.clang       
+  llvmPackages_21.libcxxClang # The Clang wrapper that knows about libc++
+  llvmPackages_21.clang-tools
   ];
+  
+
 
   #------------------------------------------------------------------------------
 # Set cursor theme and size globally for XWayland and Wayland apps
