@@ -1,3 +1,5 @@
+require("presence")
+
 vim.o.termguicolors = true
 vim.cmd.colorscheme("onedark")
 vim.cmd([[highlight Normal guibg=none ctermbg=none]])
@@ -25,6 +27,7 @@ vim.keymap.set('n', '<leader>ot', ':terminal<CR>')
 
 vim.cmd [[packadd packer.nvim]]
 require('packer').startup(function(use)
+	use 'wbthomason/packer.nvim'
 	use 'vague2k/vague.nvim'
 	use 'neovim/nvim-lspconfig'
 	use 'williamboman/mason.nvim'
@@ -33,6 +36,7 @@ require('packer').startup(function(use)
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'm4xshen/autoclose.nvim'
 	use 'joshdick/onedark.vim'
+	use 'andweeb/presence.nvim'
 end)
 
 require("autoclose").setup({
@@ -43,7 +47,7 @@ require("autoclose").setup({
 
 require('mason').setup()
 require('mason-lspconfig').setup({
-	ensure_installed = { "lua_ls", "clangd" },
+	ensure_installed = { "lua_ls" },
 	handlers = {
 		function(server)
 			require('lspconfig')[server].setup({
