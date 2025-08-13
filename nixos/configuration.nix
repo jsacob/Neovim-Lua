@@ -128,13 +128,6 @@ in
     packages = with pkgs; [];
   };
 
-  users.users.lily = {
-    isNormalUser = true;
-    description = "jacob";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [longcat neofetch];
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   
@@ -170,9 +163,6 @@ in
   kitty
   sutils
   tree-sitter
-  # llvmPackages_21.libcxxClang
-  # llvmPackages_21.clang
-  # llvmPackages_21.clang-tools
   binutils
   flatpak
   alacritty
@@ -180,6 +170,7 @@ in
   nixfmt
   eza
   fzf
+  youtube-music
 
   #System
   fish # Shell
@@ -229,24 +220,7 @@ in
     HYPRCURSOR_SIZE = "24";  # Cursor size for Wayland apps (Hyprland)
   };
 
- services = {
-keyd = {
-      enable = true;
-      keyboards = {
-        default = {
-          ids = [ "*" ];
-          settings = {
-            main = {
-              capslock = "overload(control, esc)";
-              esc = "capslock";
-            };
-};
- };
- };
- };
- };
- 
-  nixpkgs.config.permittedInsecurePackages = [
+ nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1w"
   ];
   
