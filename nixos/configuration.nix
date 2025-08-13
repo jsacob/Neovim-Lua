@@ -12,9 +12,6 @@ in
    services.flatpak.enable = true;
 
   #------------------------------------------------------------------------------
-  
-  # Docker
-  virtualisation.docker.enable = true;
 
   programs.hyprland ={
   	enable = true;
@@ -32,7 +29,14 @@ in
 
   #------------------------------------------------------------------------------
 
-programs.steam = {
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.caskaydia-mono
+  ];
+ 
+  #------------------------------------------------------------------------------
+
+  programs.steam = {
   enable = true;
   remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
   dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
@@ -174,6 +178,8 @@ programs.steam = {
   alacritty
   zsh
   nixfmt
+  eza
+  fzf
 
   #System
   fish # Shell
@@ -223,6 +229,22 @@ programs.steam = {
     HYPRCURSOR_SIZE = "24";  # Cursor size for Wayland apps (Hyprland)
   };
 
+ services = {
+keyd = {
+      enable = true;
+      keyboards = {
+        default = {
+          ids = [ "*" ];
+          settings = {
+            main = {
+              capslock = "overload(control, esc)";
+              esc = "capslock";
+            };
+};
+ };
+ };
+ };
+ };
  
   nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1w"
@@ -253,6 +275,8 @@ programs.steam = {
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+
+
   system.stateVersion = "24.11"; # Did you read the comment?
 
   services.pipewire = {
