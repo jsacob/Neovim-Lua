@@ -171,6 +171,7 @@ in
   eza
   fzf
   youtube-music
+  stow
 
   #System
   fish # Shell
