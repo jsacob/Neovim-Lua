@@ -172,6 +172,7 @@ in
   fzf
   youtube-music
   stow
+  pavucontrol
 
   #System
   fish # Shell
@@ -202,6 +203,7 @@ in
   nix-search-cli
   godot
   steam
+  lunar-client
 
   #C++ tools
   llvmPackages_21.libcxx      # The C++ standard library (libc++)
