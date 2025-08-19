@@ -36,15 +36,7 @@ in
  
   #------------------------------------------------------------------------------
 
-  programs.steam = {
-  enable = true;
-  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-};
-  #------------------------------------------------------------------------------
-
-  # Nvidia
+# Nvidia
  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
@@ -66,6 +58,7 @@ in
       nvidiaBusId = "PCI:1:0:0";
     };
   };
+
   #------------------------------------------------------------------------------
 
   # Bootloader.
@@ -196,14 +189,15 @@ in
   util-linux # Utils for Linux
   bat
   imgcat
-  
+  zoxide
+  pass
+  gnupg
+
   #personal
   firefox
   vesktop 
   nix-search-cli
-  godot
-  steam
-  lunar-client
+  obsidian
 
   #C++ tools
   llvmPackages_21.libcxx      # The C++ standard library (libc++)

@@ -4,6 +4,7 @@ vim.o.termguicolors = true
 vim.cmd.colorscheme("onedark")
 vim.cmd([[highlight Normal guibg=none ctermbg=none]])
 
+vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -37,6 +38,7 @@ require('packer').startup(function(use)
 	use 'm4xshen/autoclose.nvim'
 	use 'joshdick/onedark.vim'
 	use 'andweeb/presence.nvim'
+	use 'folke/flash.nvim'
 end)
 
 require("autoclose").setup({
