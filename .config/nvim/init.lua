@@ -1,8 +1,11 @@
-require("presence")
+
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.o.termguicolors = true
-vim.cmd.colorscheme("onedark")
-vim.cmd([[highlight Normal guibg=none ctermbg=none]])
+vim.cmd.colorscheme("vague")
+--vim.cmd([[highlight Normal guibg=none ctermbg=none]])
 
 vim.opt.relativenumber = true
 vim.opt.number = true
@@ -24,7 +27,13 @@ vim.keymap.set('n', '<leader>q', ':quit<CR>')
 vim.keymap.set('n', '<leader>e', ':Explore<CR>')
 vim.keymap.set('n', '<leader>fifr', ':%s/')
 vim.keymap.set('n', '<leader>so', ':source<CR>')
-vim.keymap.set('n', '<leader>ot', ':terminal<CR>')
+vim.keymap.set('n', '<leader>e', ':NvimTreeOpen<CR>')
+vim.keymap.set('n', '<leader>h', '<C-w>h', { noremap = true })
+vim.keymap.set('n', '<leader>l', '<C-w>l', { noremap = true })
+vim.keymap.set('n', '<leader>n', ':bNext<CR>')
+vim.keymap.set('n', '<leader>p', ':bprevious<CR>')
+
+
 
 vim.cmd [[packadd packer.nvim]]
 require('packer').startup(function(use)
@@ -39,6 +48,8 @@ require('packer').startup(function(use)
 	use 'joshdick/onedark.vim'
 	use 'andweeb/presence.nvim'
 	use 'folke/flash.nvim'
+    use 'datsfilipe/vesper.nvim'
+	use 'nvim-tree/nvim-tree.lua'
 end)
 
 require("autoclose").setup({
@@ -49,7 +60,7 @@ require("autoclose").setup({
 
 require('mason').setup()
 require('mason-lspconfig').setup({
-	ensure_installed = { "lua_ls" },
+	ensure_installed = { "lua_ls", "ts_ls", "tailwindcss" },
 	handlers = {
 		function(server)
 			require('lspconfig')[server].setup({
@@ -113,3 +124,25 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 transparent_popup()
+
+-- NVIM-TREE
+vim.opt.termguicolors = true
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+
+-- OR setup with some options
+require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
