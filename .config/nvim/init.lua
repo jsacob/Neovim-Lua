@@ -3,7 +3,7 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.o.termguicolors = true
 vim.cmd.colorscheme("vague")
---vim.cmd([[highlight Normal guibg=none ctermbg=none]])
+-- vim.cmd([[highlight Normal guibg=none ctermbg=none]])
 
 vim.opt.relativenumber = true
 vim.opt.number = true
@@ -13,26 +13,17 @@ vim.opt.shell = 'zsh'
 vim.opt.wrap = false
 vim.opt.linebreak = true
 vim.opt.syntax = 'on'
-vim.opt.visualbell = true
+-- vim.opt.visualbell = true
 vim.opt.autoindent = true
-vim.opt.cursorline = true
-vim.opt.clipboard:append("unnamedplus")
 vim.opt.showmatch = true
 
 vim.g.mapleader = " "
 vim.keymap.set('n', '<leader>w', ':write<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')
-vim.keymap.set('n', '<leader>e', ':Explore<CR>')
 vim.keymap.set('n', '<leader>fifr', ':%s/')
 vim.keymap.set('n', '<leader>so', ':source<CR>')
 vim.keymap.set('n', '<leader>e', ':NvimTreeOpen<CR>')
-vim.keymap.set('n', '<leader>h', '<C-w>h', { noremap = true })
-vim.keymap.set('n', '<leader>l', '<C-w>l', { noremap = true })
-vim.keymap.set('n', '<leader>n', ':bNext<CR>')
-vim.keymap.set('n', '<leader>p', ':bprevious<CR>')
-vim.keymap.set('n', '<leader>mg', ':!glow %<CR>', { noremap = true, silent = true })
--- Keymap to toggle markdown preview
-vim.keymap.set('n', '<leader>mp', ':MarkdownPreview<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>ff', ':e ')
 
 vim.cmd [[packadd packer.nvim]]
 require('packer').startup(function(use)
@@ -44,40 +35,26 @@ require('packer').startup(function(use)
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'm4xshen/autoclose.nvim'
-    use 'joshdick/onedark.vim'
     use 'andweeb/presence.nvim'
     use 'folke/flash.nvim'
-    use 'datsfilipe/vesper.nvim'
     use 'nvim-tree/nvim-tree.lua'
 	use 'iamcco/markdown-preview.nvim'
-
-    -- Treesitter for markdown + latex
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
-    }
-
-    -- Markdown preview with LaTeX math support
-    -- use({
-    --     "iamcco/markdown-preview.nvim",
-    --     run = "cd app && npm install",
-    --     ft = { "markdown" },
-    -- })
-
-    -- Vimtex for LaTeX support (optional but recommended)
-    use 'lervag/vimtex'
+    };
 end)
 
 require("autoclose").setup({
     keys = {
-        ["$"] = { escape = true, close = true, pair = "$$", disabled_filetypes = {} },
+        ["$"] = { escape = true, close = true, pair = "$$", disabled_filetypes = {".md"} },
     },
 })
 
 -- Mason and LSP config
 require('mason').setup()
 require('mason-lspconfig').setup({
-    ensure_installed = { "lua_ls", "ts_ls", "tailwindcss", "marksman", "texlab" }, -- added marksman & texlab
+    ensure_installed = { "lua_ls", "ts_ls", "tailwindcss", "marksman", "texlab" }, 
     handlers = {
         function(server)
             require('lspconfig')[server].setup({
@@ -99,14 +76,13 @@ require('mason-lspconfig').setup({
     }
 })
 
--- clangd config
 require("lspconfig").clangd.setup({
     cmd = { "/nix/store/g1zsg6imkxm4k53gywnkvklypnyc2kmw-system-path/bin/clangd" },
     capabilities = require("cmp_nvim_lsp").default_capabilities(),
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "*.lua" },
+    pattern = { "*.lua", "*.tsx", ".cpp", ".ts" },
     callback = function()
         vim.lsp.buf.format()
     end,
@@ -143,7 +119,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
 transparent_popup()
 
--- NVIM-TREE
 vim.opt.termguicolors = true
 
 require("nvim-tree").setup({
