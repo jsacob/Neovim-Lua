@@ -3,19 +3,20 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.o.termguicolors = true
 vim.cmd.colorscheme("vague")
--- vim.cmd([[highlight Normal guibg=none ctermbg=none]])
+vim.cmd([[highlight Normal guibg=none ctermbg=none]])
+vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#00e1ff" })
+vim.api.nvim_set_hl(0, "StatusLine", { bg = "#000000", fg = "#ffffff" })
 
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.shell = 'zsh'
 vim.opt.wrap = false
 vim.opt.linebreak = true
 vim.opt.syntax = 'on'
--- vim.opt.visualbell = true
 vim.opt.autoindent = true
 vim.opt.showmatch = true
+vim.opt.clipboard = "unnamedplus"
 
 vim.g.mapleader = " "
 vim.keymap.set('n', '<leader>w', ':write<CR>')
@@ -136,20 +137,17 @@ require("nvim-tree").setup({
   },
 })
 
--- Treesitter setup for markdown + latex
 require("nvim-treesitter.configs").setup {
     ensure_installed = { "markdown", "latex" },
     highlight = { enable = true },
 }
 
--- Markdown preview config
-vim.g.mkdp_auto_start = 0      -- Don't auto-start preview, toggle manually
+vim.g.mkdp_auto_start = 0      
 vim.g.mkdp_auto_close = 1
 vim.g.mkdp_refresh_slow = 1
 vim.g.mkdp_open_to_the_world = 0
 
--- Vimtex config (optional)
-vim.g.vimtex_view_method = 'zathura'  -- or 'skim' on macOS, or your PDF viewer
+vim.g.vimtex_view_method = 'zathura' 
 vim.g.vimtex_compiler_method = 'latexmk'
 
 

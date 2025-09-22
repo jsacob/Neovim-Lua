@@ -1,80 +1,45 @@
-  #------------------------------------------------------------------------------
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
 
-  { config, pkgs, ... }:
-  let
-  # sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
-  # sudo nix-channel --update
-  unstable = import <nixos-unstable> {
-    config = { allowUnfree = true; };
+{ config, pkgs, ... }:
+ let
+   unstable = import <nixos-unstable> {
+     config = { allowUnfree = true; };
   };
-in
+ in
   {
-   services.flatpak.enable = true;
-
-  #------------------------------------------------------------------------------
-
-  programs.hyprland ={
-  	enable = true;
-	xwayland.enable = true;
-  };
-  programs.zsh.enable = true;
-  programs.nix-ld.enable = true;
-
-  users.defaultUserShell = pkgs.zsh;
-
+  nixpkgs.config.allowUnfree = true;
+  
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
       ./hardware-configuration.nix
-    ];	
+    ];
+  
+  services.flatpak.enable = true;
 
-  #------------------------------------------------------------------------------
+  programs.hyprland={
+      enable = true;
+      xwayland.enable = true;
+  };
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     nerd-fonts.caskaydia-mono
+
   ];
- 
-  #------------------------------------------------------------------------------
 
-# Nvidia
- services.xserver.videoDrivers = [ "nvidia" ];
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.production;
-    dynamicBoost.enable = true;
-    prime = {
-      reverseSync.enable = true;
-      offload = {
-        enable = false;
-        enableOffloadCmd = true;
-      };
-      sync.enable = false;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
+  programs.steam = {
+  enable = true;
+  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
-
-  #------------------------------------------------------------------------------
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  #------------------------------------------------------------------------------
-
-  # Bluetooth
-  services.blueman.enable = true;
   hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-
-  #------------------------------------------------------------------------------
-
-  # Network
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -84,10 +49,8 @@ in
 
   # Enable networking
   networking.networkmanager.enable = true;
- 
-  #------------------------------------------------------------------------------
 
-  # System Settings
+  # Set your time zone.
   time.timeZone = "America/New_York";
 
   # Select internationalisation properties.
@@ -111,9 +74,7 @@ in
     variant = "";
   };
 
-  #------------------------------------------------------------------------------
-
-  # Personal (local) Packages
+  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jacob = {
     isNormalUser = true;
     description = "jacob";
@@ -121,106 +82,102 @@ in
     packages = with pkgs; [];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  
+ # Nvidia
+ services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
+    dynamicBoost.enable = true;
+    prime = {
+      reverseSync.enable = true;
+      offload = {
+        enable = false;
+        enableOffloadCmd = true;
+      };
+      sync.enable = false;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+  };
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-  #------------------------------------------------------------------------------
-
-  # System (global) Packages
+# List packages installed in system profile. To search, run:
+  # $ nix search wget
   environment.systemPackages = with pkgs; [
-
-  #code
   neovim
   git
-  tmux
   gh
-  python312
   pkg-config
-  luarocks # (Lazyvim)
-  pkgs.vimPlugins.nvim-treesitter
-  stylua # (LazyVim)
-  fzf #Fuzzy Finder (LazyVim)
-  nodejs_22
+  firefox
+  alacritty
+  fzf
+  timer
+  sutils
+  tree-sitter
+  binutils
+  flatpak
+  nixfmt
+  eza
+  youtube-music
+  stow
+  pavucontrol
+  vscode
+  openjdk mesa
+
+  fish
+  brightnessctl
+  unzip
+  wl-clipboard
+  tofi
+  playerctl
+  dunst
+  xdg-utils
+  hyprpaper
+  wayland
+  wayland-protocols
+  usbutils
+  atop
+  openssl
+  grimblast
+  grim
+  slurp
+  util-linux
+  bat
+  imgcat
+  zoxide
+  pass
+  vesktop
+  eza
+  google-chrome
+  steam
+  nvtopPackages.nvidia 
+
+# Language & Language Support
+  python312
+  luarocks
+  stylua
   bun
   cargo
   rustup
   rustlings
   gnumake
-  timer
   jdk21
-  kitty
-  sutils
-  tree-sitter
-  binutils
-  flatpak
-  alacritty
-  zsh
-  nixfmt
-  eza
-  fzf
-  youtube-music
-  stow
-  pavucontrol
-
-  #System
-  fish # Shell
-  brightnessctl # Controls Brightness
-  unzip # Unzip packages
-  wl-clipboard # For automatically copying whole files  
-  tofi # Search tool
-  playerctl # Music Player for keys
-  dunst # Notification daemon
-  xdg-utils # command-line utilites
-  hyprpaper # Hyprland wallpaper manager
-  wayland 
-  wayland-protocols
-  wineWowPackages.waylandFull #For running window applications on Linux
-  usbutils #Collection of tools for interacting with USB devices
-  atop # Resource monitoring tool 
-  gthumb # Image viewer
-  nvtopPackages.nvidia # For Nvidia
-  openssl
-  grimblast # Screenshot tool
-  util-linux # Utils for Linux
-  bat
-  imgcat
-  zoxide
-  pass
-  gnupg
-
-  #personal
-  firefox
-  vesktop 
-  nix-search-cli
-  obsidian
-
-  #C++ tools
-  llvmPackages_21.libcxx      # The C++ standard library (libc++)
-  llvmPackages_21.clang       
-  llvmPackages_21.libcxxClang # The Clang wrapper that knows about libc++
+  llvmPackages_21.libcxx
+  llvmPackages_21.clang
+  llvmPackages_21.libcxxClang
   llvmPackages_21.clang-tools
+  nodejs_24
   ];
-  
 
-
-  #------------------------------------------------------------------------------
-# Set cursor theme and size globally for XWayland and Wayland apps
-  environment.variables = {
-    XCURSOR_THEME = "HyprBibataModernClassicSVG";  # Cursor theme for XWayland apps
-    XCURSOR_SIZE = "24";  # Cursor size for XWayland apps
-    HYPRCURSOR_THEME = "HyprBibataModernClassicSVG";  # Cursor theme for Wayland apps (Hyprland)
-    HYPRCURSOR_SIZE = "24";  # Cursor size for Wayland apps (Hyprland)
-  };
-
- nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w"
-  ];
-  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -246,20 +203,6 @@ in
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-
-
-  system.stateVersion = "24.11"; # Did you read the comment?
-
-  services.pipewire = {
-     enable = true;
-     audio.enable = true;
-     extraConfig.pipewire = {
-       "context.modules" = [
-         { name = "libpipewire-module-bluez5"; args = { "a2dp.force-a2dp" = true; }; }
-       ];
-     };
-   };
+  system.stateVersion = "25.05"; # Did you read the comment?
 
 }
-
-  #------------------------------------------------------------------------------

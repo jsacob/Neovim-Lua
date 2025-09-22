@@ -18,3 +18,5 @@ CTRL-w to jump between windows quickly but use CTRL-[h,j,k,l] to selectivly go t
 CTRL-v to split vertical 
 CTRL-s to split horizontal
 
+qq to record
+Q+SHIFT+:to view history
