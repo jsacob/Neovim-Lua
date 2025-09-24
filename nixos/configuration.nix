@@ -118,7 +118,6 @@
   gh
   pkg-config
   firefox
-  alacritty
   fzf
   timer
   sutils
@@ -132,8 +131,8 @@
   pavucontrol
   vscode
   openjdk mesa
+  ghostty
 
-  fish
   brightnessctl
   unzip
   wl-clipboard
@@ -160,6 +159,7 @@
   google-chrome
   steam
   nvtopPackages.nvidia 
+  ulauncher
 
 # Language & Language Support
   python312

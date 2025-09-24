@@ -20,3 +20,5 @@ CTRL-s to split horizontal
 
 qq to record
 Q+SHIFT+:to view history
+
+use ]d or [d to go to the next issue in code
