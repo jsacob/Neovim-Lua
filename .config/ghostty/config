@@ -15,7 +15,8 @@
 	keybind = alt+shift+z=close_surface
 	keybind = alt+shift+h=goto_split:left
 	keybind = alt+shift+l=goto_split:right
-
+	confirm-close-surface = false
+	
 # The template does not set any default options, since Ghostty ships
 # with sensible defaults for all options. Users should only need to set
 # options that they want to change from the default.
