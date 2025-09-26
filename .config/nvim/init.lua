@@ -78,7 +78,7 @@ require('mason-lspconfig').setup({
 })
 
 require("lspconfig").clangd.setup({
-    cmd = { "/nix/store/g1zsg6imkxm4k53gywnkvklypnyc2kmw-system-path/bin/clangd" },
+    cmd = { "/nix/store/da8bysgl1axaix9vgya2khcj69bbvziy-system-path/bin/clangd" },
     capabilities = require("cmp_nvim_lsp").default_capabilities(),
 })
 
