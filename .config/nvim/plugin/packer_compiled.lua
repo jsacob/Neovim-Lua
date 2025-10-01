@@ -103,6 +103,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jacob/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["vague.nvim"] = {
+    loaded = true,
+    path = "/Users/jacob/.local/share/nvim/site/pack/packer/start/vague.nvim",
+    url = "https://github.com/vague2k/vague.nvim"
   }
 }
 
