@@ -3,6 +3,12 @@ vim.api.nvim_set_hl(0, "StatusLine", { bg = "#000000", fg = "#ffffff" })
 
 vim.cmd.colorscheme("vague")
 
+-- transparent background
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
@@ -11,13 +17,13 @@ vim.opt.syntax = 'on'
 vim.g.mapleader = " "
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.clipboard= "unnamedplus"
 
 vim.keymap.set('n', '<leader>so', ':source<CR>')
 vim.keymap.set('n', '<leader>w', ':write<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')
 
 require("mason").setup()
--- Lsp
 require("lsp_settings").setup()
 
 return require('packer').startup(function(use)

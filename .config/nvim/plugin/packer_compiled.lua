@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/jacob/.cache/nvim/packer_hererocks/2.1.1744318430/share/lua/5.1/?.lua;/Users/jacob/.cache/nvim/packer_hererocks/2.1.1744318430/share/lua/5.1/?/init.lua;/Users/jacob/.cache/nvim/packer_hererocks/2.1.1744318430/lib/luarocks/rocks-5.1/?.lua;/Users/jacob/.cache/nvim/packer_hererocks/2.1.1744318430/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/jacob/.cache/nvim/packer_hererocks/2.1.1744318430/lib/lua/5.1/?.so"
+local package_path_str = "/home/jacob/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?.lua;/home/jacob/.cache/nvim/packer_hererocks/2.1.1741730670/share/lua/5.1/?/init.lua;/home/jacob/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?.lua;/home/jacob/.cache/nvim/packer_hererocks/2.1.1741730670/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/jacob/.cache/nvim/packer_hererocks/2.1.1741730670/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -76,37 +76,37 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/Users/jacob/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    path = "/home/jacob/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
-    path = "/Users/jacob/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    path = "/home/jacob/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/mason-org/mason-lspconfig.nvim"
   },
   ["mason.nvim"] = {
     loaded = true,
-    path = "/Users/jacob/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    path = "/home/jacob/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/mason-org/mason.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
-    path = "/Users/jacob/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    path = "/home/jacob/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/Users/jacob/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    path = "/home/jacob/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/Users/jacob/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    path = "/home/jacob/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["vague.nvim"] = {
     loaded = true,
-    path = "/Users/jacob/.local/share/nvim/site/pack/packer/start/vague.nvim",
+    path = "/home/jacob/.local/share/nvim/site/pack/packer/start/vague.nvim",
     url = "https://github.com/vague2k/vague.nvim"
   }
 }
