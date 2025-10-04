@@ -4,6 +4,7 @@ vim.api.nvim_set_hl(0, "StatusLine", { bg = "#000000", fg = "#ffffff" })
 vim.cmd.colorscheme("vague")
 
 -- transparent background
+--
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none' })
@@ -19,9 +20,10 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.clipboard= "unnamedplus"
 
-vim.keymap.set('n', '<leader>so', ':source<CR>')
-vim.keymap.set('n', '<leader>w', ':write<CR>')
-vim.keymap.set('n', '<leader>q', ':quit<CR>')
+local map = vim.keymap.set
+map('n', '<leader>so', ':source<CR>')
+map('n', '<leader>w', ':write<CR>')
+map('n', '<leader>q', ':quit<CR>')
 
 require("mason").setup()
 require("lsp_settings").setup()
