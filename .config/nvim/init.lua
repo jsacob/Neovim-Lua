@@ -1,5 +1,5 @@
-vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#00e1ff" })
-vim.api.nvim_set_hl(0, "StatusLine", { bg = "#000000", fg = "#ffffff" })
+-- vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#00e1ff" })
+-- vim.api.nvim_set_hl(0, "StatusLine", { bg = "#000000", fg = "#ffffff" })
 
 vim.cmd.colorscheme("vague")
 
@@ -13,9 +13,16 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.clipboard="unnamedplus"
 
-vim.keymap.set('n', '<leader>so', ':source<CR>')
-vim.keymap.set('n', '<leader>w', ':write<CR>')
-vim.keymap.set('n', '<leader>q', ':quit<CR>')
+local map = vim.keymap.set
+map('n', '<leader>so', ':source<CR>')
+map('n', '<leader>w', ':write<CR>')
+map('n', '<leader>q', ':quit<CR>')
+
+local builtin = require('telescope.builtin')
+map('n', '<leader>ff', builtin.find_files)
+map('n', '<leader>gc', builtin.git_commits)
+map('n', '<leader>ch', builtin.command_history)
+
 
 require("plugins")
 
