@@ -11,26 +11,19 @@ vim.opt.syntax = 'on'
 vim.g.mapleader = " "
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.clipboard="unnamedplus"
 
 vim.keymap.set('n', '<leader>so', ':source<CR>')
 vim.keymap.set('n', '<leader>w', ':write<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')
 
-require("mason").setup()
--- Lsp
-require("lsp_settings").setup()
+require("plugins")
 
-return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim'
-	--Lsp's and such
-	use 'neovim/nvim-lspconfig'
-	use 'hrsh7th/cmp-nvim-lsp'
-	use 'hrsh7th/nvim-cmp'
-	use 'mason-org/mason-lspconfig.nvim'
-	use 'mason-org/mason.nvim'
-	--Themes
-	use 'vague2k/vague.nvim'
-end)
+require("mason").setup()
+require"lsp_signature".setup()
+
+require("lsp.lsp_settings").setup()
+require("config.telescope")
 
 
 
