@@ -1,6 +1,3 @@
--- vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#00e1ff" })
--- vim.api.nvim_set_hl(0, "StatusLine", { bg = "#000000", fg = "#ffffff" })
-
 vim.cmd.colorscheme("vague")
 
 vim.opt.number = true
