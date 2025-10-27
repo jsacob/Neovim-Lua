@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("vague")
+vim.cmd.colorscheme("ofirkai")
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -14,6 +14,7 @@ local map = vim.keymap.set
 map('n', '<leader>so', ':source<CR>')
 map('n', '<leader>w', ':write<CR>')
 map('n', '<leader>q', ':quit<CR>')
+map('n', '<leader>cs', ':nohlsearch<CR>')
 
 local builtin = require('telescope.builtin')
 map('n', '<leader>ff', builtin.find_files)
