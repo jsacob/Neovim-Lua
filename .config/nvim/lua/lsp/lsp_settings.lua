@@ -1,14 +1,13 @@
 local M = {}
 
-pcall(require, 'clang_lsp')
-pcall(require, 'lualsp')
-
 function M.setup()
+  -- Diagnostic configuration
   vim.diagnostic.config({
     virtual_text = true,
     float = { border = "rounded" },
   })
 
+  -- Autocompletion setup (nvim-cmp)
   local cmp = require('cmp')
   cmp.setup({
     sources = {
@@ -19,16 +18,20 @@ function M.setup()
     }),
     snippet = {
       expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) 
+        vim.fn["vsnip#anonymous"](args.body)
       end,
     },
   })
 
-  require('mason-lspconfig').setup({
+  -- Mason-LSPconfig setup to ensure servers are installed
+  require("mason-lspconfig").setup({
+    ensure_installed = { "clangd", "lua_ls" },
+    automatic_installation = true,
     experimental = {
-      ghost_text = true,
+      ghost_text = true, -- Enables ghost text (preview of completion)
     },
     handlers = {
+      -- Default handler to set up LSP servers
       function(server)
         require('lspconfig')[server].setup({
           capabilities = require('cmp_nvim_lsp').default_capabilities(),
@@ -39,4 +42,3 @@ function M.setup()
 end
 
 return M
-

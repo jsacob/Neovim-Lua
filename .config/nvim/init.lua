@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("ofirkai")
+vim.cmd.colorscheme("vscode")
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -15,12 +15,12 @@ map('n', '<leader>so', ':source<CR>')
 map('n', '<leader>w', ':write<CR>')
 map('n', '<leader>q', ':quit<CR>')
 map('n', '<leader>cs', ':nohlsearch<CR>')
+map('n', '<leader>.', ':NERDTreeToggle<CR>')
 
 local builtin = require('telescope.builtin')
 map('n', '<leader>ff', builtin.find_files)
 map('n', '<leader>gc', builtin.git_commits)
 map('n', '<leader>ch', builtin.command_history)
-
 
 require("plugins")
 

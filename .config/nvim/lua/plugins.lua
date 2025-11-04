@@ -1,6 +1,8 @@
 return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim'
+	use  'wbthomason/packer.nvim'
 	-- lsps
+	use  'preservim/nerdtree'
+ 	use  'andweeb/presence.nvim'
 	use	 'neovim/nvim-lspconfig'
 	use	 'hrsh7th/cmp-nvim-lsp'
 	use	 'hrsh7th/nvim-cmp'
@@ -12,6 +14,6 @@ return require('packer').startup(function(use)
 	use	 'BurntSushi/ripgrep'
 	use	 'nvim-treesitter/nvim-treesitter'
 	use	 'sharkdp/fd'
-	use	 'vague2k/vague.nvim'
-	use  'ofirgall/ofirkai.nvim'
+ 	use  'Mofiqul/vscode.nvim'
+
 end)
