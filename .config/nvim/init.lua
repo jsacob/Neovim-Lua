@@ -1,4 +1,5 @@
 vim.cmd.colorscheme("vscode")
+vim.cmd[[highlight StatusLine guifg=#FFFFFF guibg=#282C34]]
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -21,6 +22,8 @@ local builtin = require('telescope.builtin')
 map('n', '<leader>ff', builtin.find_files)
 map('n', '<leader>gc', builtin.git_commits)
 map('n', '<leader>ch', builtin.command_history)
+map('n', '<leader>cd', builtin.diagnostics)
+map('n', '<leader>cc', builtin.commands)
 
 require("plugins")
 

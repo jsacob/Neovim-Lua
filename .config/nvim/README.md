@@ -28,3 +28,5 @@ also when on a path you can shift+e to jump to the end of that file
 f + charter to jump to, helpful for partheses of specifics i guess
 
 cib jumps directly into and clearing the partheses 
+
+CF + any char to clear to 
