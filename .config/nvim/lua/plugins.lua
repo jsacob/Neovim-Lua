@@ -16,5 +16,6 @@ return require('packer').startup(function(use)
 	use	'sharkdp/fd'
  	use 'Mofiqul/vscode.nvim'
 	use 'tpope/vim-obsession'
+	use 'rose-pine/neovim'
 
 end)

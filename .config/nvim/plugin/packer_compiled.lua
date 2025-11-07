@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/home/jacob/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/mason-org/mason.nvim"
   },
+  neovim = {
+    loaded = true,
+    path = "/home/jacob/.local/share/nvim/site/pack/packer/start/neovim",
+    url = "https://github.com/rose-pine/neovim"
+  },
   nerdtree = {
     loaded = true,
     path = "/home/jacob/.local/share/nvim/site/pack/packer/start/nerdtree",

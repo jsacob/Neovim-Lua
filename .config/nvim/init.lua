@@ -1,5 +1,11 @@
-vim.cmd.colorscheme("vscode")
-vim.cmd[[highlight StatusLine guifg=#FFFFFF guibg=#282C34]]
+vim.cmd.colorscheme("rose-pine-moon")
+vim.opt.background = "dark"
+vim.cmd([[
+  highlight Normal guibg=black
+  highlight LineNr guibg=black
+  highlight SignColumn guibg=black
+  highlight CursorLineNr guibg=black
+]])
 
 vim.opt.number = true
 vim.opt.relativenumber = true
