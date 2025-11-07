@@ -12,7 +12,6 @@ require('telescope').setup({
   },
 })
 
--- 🖤 Set Telescope backgrounds to black
 vim.cmd [[
   highlight TelescopeNormal guibg=#000000
   highlight TelescopeBorder guibg=#000000 guifg=#000000

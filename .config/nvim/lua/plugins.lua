@@ -1,21 +1,26 @@
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
-	-- lsps
-	use 'preservim/nerdtree'
- 	use 'andweeb/presence.nvim'
+
+	-- Code
 	use	'neovim/nvim-lspconfig'
 	use	'hrsh7th/cmp-nvim-lsp'
+ 	use 'andweeb/presence.nvim'
 	use	'hrsh7th/nvim-cmp'
 	use	'mason-org/mason-lspconfig.nvim'
 	use	'mason-org/mason.nvim'
 	use	'ray-x/lsp_signature.nvim'
-	use	'nvim-telescope/telescope.nvim'
+	use 'm4xshen/autoclose.nvim'
+	use 'tpope/vim-obsession'
+	-- Tools
 	use	'nvim-lua/plenary.nvim'
 	use	'BurntSushi/ripgrep'
 	use	'nvim-treesitter/nvim-treesitter'
 	use	'sharkdp/fd'
- 	use 'Mofiqul/vscode.nvim'
-	use 'tpope/vim-obsession'
+	use 'akinsho/toggleterm.nvim'
+	-- Nav
+	use	'nvim-telescope/telescope.nvim'
+	-- Theme
 	use 'rose-pine/neovim'
+
 
 end)

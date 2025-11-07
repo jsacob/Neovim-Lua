@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["autoclose.nvim"] = {
+    loaded = true,
+    path = "/home/jacob/.local/share/nvim/site/pack/packer/start/autoclose.nvim",
+    url = "https://github.com/m4xshen/autoclose.nvim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/jacob/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -103,11 +108,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jacob/.local/share/nvim/site/pack/packer/start/neovim",
     url = "https://github.com/rose-pine/neovim"
-  },
-  nerdtree = {
-    loaded = true,
-    path = "/home/jacob/.local/share/nvim/site/pack/packer/start/nerdtree",
-    url = "https://github.com/preservim/nerdtree"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -149,15 +149,15 @@ _G.packer_plugins = {
     path = "/home/jacob/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/home/jacob/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
   ["vim-obsession"] = {
     loaded = true,
     path = "/home/jacob/.local/share/nvim/site/pack/packer/start/vim-obsession",
     url = "https://github.com/tpope/vim-obsession"
-  },
-  ["vscode.nvim"] = {
-    loaded = true,
-    path = "/home/jacob/.local/share/nvim/site/pack/packer/start/vscode.nvim",
-    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 

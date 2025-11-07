@@ -1,11 +1,4 @@
 vim.cmd.colorscheme("rose-pine-moon")
-vim.opt.background = "dark"
-vim.cmd([[
-  highlight Normal guibg=black
-  highlight LineNr guibg=black
-  highlight SignColumn guibg=black
-  highlight CursorLineNr guibg=black
-]])
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -23,6 +16,7 @@ map('n', '<leader>w', ':write<CR>')
 map('n', '<leader>q', ':quit<CR>')
 map('n', '<leader>cs', ':nohlsearch<CR>')
 map('n', '<leader>.', ':NERDTreeToggle<CR>')
+map('n', '<leader><Tab>', ':ToggleTerm<CR>')
 
 local builtin = require('telescope.builtin')
 map('n', '<leader>ff', builtin.find_files)
@@ -30,6 +24,12 @@ map('n', '<leader>gc', builtin.git_commits)
 map('n', '<leader>ch', builtin.command_history)
 map('n', '<leader>cd', builtin.diagnostics)
 map('n', '<leader>cc', builtin.commands)
+
+require("autoclose").setup({
+   keys = {
+      ["$"] = { escape = true, close = true, pair = "$$", disabled_filetypes = {} },
+   },
+})
 
 require("plugins")
 
@@ -39,5 +39,5 @@ require"lsp_signature".setup()
 require("lsp.lsp_settings").setup()
 require("config.telescope")
 
-
+require("config.toggleterm");
 
