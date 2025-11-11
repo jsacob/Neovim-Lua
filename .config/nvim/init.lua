@@ -1,8 +1,8 @@
 vim.cmd.colorscheme("rose-pine-moon")
 
-vim.cmd [[
-  highlight StatusLine guibg=#000000 guifg=#cdd6f4
-]]
+-- vim.cmd [[
+--   highlight StatusLine guibg=#000000 guifg=#cdd6f4
+-- ]]
 
 vim.opt.number = true
 vim.opt.relativenumber = true

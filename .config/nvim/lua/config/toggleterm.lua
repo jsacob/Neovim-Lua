@@ -29,9 +29,9 @@ require("toggleterm").setup({
   },
 
   highlights = {
-    Normal = { guibg = "black" },
-    NormalFloat = { guibg = "black" },
-    FloatBorder = { guifg = "#f8f0e7", guibg = "black" },
+    -- Normal = { guibg = "black" },
+    -- NormalFloat = { guibg = "black" },
+    -- FloatBorder = { guifg = "#f8f0e7", guibg = "black" },
   },
 })
 

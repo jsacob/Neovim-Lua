@@ -12,14 +12,14 @@ require('telescope').setup({
   },
 })
 
-vim.cmd [[
-  highlight TelescopeNormal guibg=#000000
-  highlight TelescopeBorder guibg=#000000 guifg=#000000
-  highlight TelescopePromptNormal guibg=#000000
-  highlight TelescopePromptBorder guibg=#000000 guifg=#000000
-  highlight TelescopeResultsNormal guibg=#000000
-  highlight TelescopeResultsBorder guibg=#000000 guifg=#000000
-  highlight TelescopePreviewNormal guibg=#000000
-  highlight TelescopePreviewBorder guibg=#000000 guifg=#000000
-]]
-
+-- vim.cmd [[
+--   highlight TelescopeNormal guibg=#000000
+--   highlight TelescopeBorder guibg=#000000 guifg=#000000
+--   highlight TelescopePromptNormal guibg=#000000
+--   highlight TelescopePromptBorder guibg=#000000 guifg=#000000
+--   highlight TelescopeResultsNormal guibg=#000000
+--   highlight TelescopeResultsBorder guibg=#000000 guifg=#000000
+--   highlight TelescopePreviewNormal guibg=#000000
+--   highlight TelescopePreviewBorder guibg=#000000 guifg=#000000
+-- ]]
+--
