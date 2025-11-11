@@ -17,6 +17,9 @@ return require('packer').startup(function(use)
 	use	'nvim-treesitter/nvim-treesitter'
 	use	'sharkdp/fd'
 	use 'akinsho/toggleterm.nvim'
+	-- Git
+	use 'tpope/vim-fugitive'
+	use 'tanvirtin/vgit.nvim'
 	-- Nav
 	use	'nvim-telescope/telescope.nvim'
 	-- Theme

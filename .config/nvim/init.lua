@@ -19,15 +19,18 @@ map('n', '<leader>so', ':source<CR>')
 map('n', '<leader>w', ':write<CR>')
 map('n', '<leader>q', ':quit<CR>')
 map('n', '<leader>cs', ':nohlsearch<CR>')
-map('n', '<leader>.', ':NERDTreeToggle<CR>')
 map('n', '<leader><Tab>', ':ToggleTerm<CR>')
 
 local builtin = require('telescope.builtin')
 map('n', '<leader>ff', builtin.find_files)
-map('n', '<leader>gc', builtin.git_commits)
 map('n', '<leader>ch', builtin.command_history)
 map('n', '<leader>cd', builtin.diagnostics)
 map('n', '<leader>cc', builtin.commands)
+
+--git
+map('n', '<leader>gp', ':VGit project_diff_preview<CR>', { noremap = true, silent = true })
+map('n', '<leader>bp', ':VGit buffer_history_preview<CR>', { noremap = true, silent = true })
+map('n', '<leader>ga', ':Git add .<CR>', { noremap = true, silent = true })
 
 require("autoclose").setup({
    keys = {
@@ -42,6 +45,7 @@ require"lsp_signature".setup()
 
 require("lsp.lsp_settings").setup()
 require("config.telescope")
+require('vgit').setup()
 
 require("config.toggleterm");
 
