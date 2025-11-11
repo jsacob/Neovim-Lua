@@ -50,6 +50,7 @@ require("config.telescope")
 require('vgit').setup()
 
 require("config.toggleterm");
+require('live-server').setup();
 
 -- local opts = { noremap = true, silent = true }
 -- vim.keymap.set('n', 'j', 'jzz', opts)

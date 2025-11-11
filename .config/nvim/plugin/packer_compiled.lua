@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/jacob/.local/share/nvim/site/pack/packer/start/fd",
     url = "https://github.com/sharkdp/fd"
   },
+  ["live-server.nvim"] = {
+    loaded = true,
+    path = "/home/jacob/.local/share/nvim/site/pack/packer/start/live-server.nvim",
+    url = "https://github.com/barrett-ruth/live-server.nvim"
+  },
   ["lsp_signature.nvim"] = {
     loaded = true,
     path = "/home/jacob/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
