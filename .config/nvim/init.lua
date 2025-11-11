@@ -28,9 +28,11 @@ map('n', '<leader>cd', builtin.diagnostics)
 map('n', '<leader>cc', builtin.commands)
 
 --git
-map('n', '<leader>gp', ':VGit project_diff_preview<CR>', { noremap = true, silent = true })
-map('n', '<leader>bp', ':VGit buffer_history_preview<CR>', { noremap = true, silent = true })
+map('n', '<leader>gdp', ':VGit project_diff_preview<CR>', { noremap = true, silent = true })
+map('n', '<leader>gbp', ':VGit buffer_history_preview<CR>', { noremap = true, silent = true })
 map('n', '<leader>ga', ':Git add .<CR>', { noremap = true, silent = true })
+map('n', '<leader>gp', ':Git push <CR>', { noremap = true, silent = true })
+
 
 require("autoclose").setup({
    keys = {
