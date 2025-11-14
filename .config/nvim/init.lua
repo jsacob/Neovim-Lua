@@ -1,7 +1,5 @@
 vim.cmd.colorscheme("rose-pine-moon")
 
--- example for git
-
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
@@ -50,3 +48,7 @@ require('vgit').setup()
 require("config.toggleterm");
 require('live-server').setup();
 
+
+
+
+-- git example for yt
