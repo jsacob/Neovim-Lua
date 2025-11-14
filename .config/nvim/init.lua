@@ -1,9 +1,5 @@
 vim.cmd.colorscheme("rose-pine-moon")
 
--- vim.cmd [[
---   highlight StatusLine guibg=#000000 guifg=#cdd6f4
--- ]]
-
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
@@ -52,8 +48,3 @@ require('vgit').setup()
 require("config.toggleterm");
 require('live-server').setup();
 
--- local opts = { noremap = true, silent = true }
--- vim.keymap.set('n', 'j', 'jzz', opts)
--- vim.keymap.set('n', 'k', 'kzz', opts)
--- vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
--- vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
