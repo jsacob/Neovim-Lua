@@ -10,7 +10,6 @@ return require('packer').startup(function(use)
 	use	'mason-org/mason.nvim'
 	use	'ray-x/lsp_signature.nvim'
 	use 'm4xshen/autoclose.nvim'
-	use 'tpope/vim-obsession'
 	use 'barrett-ruth/live-server.nvim'
 	-- Tools
 	use	'nvim-lua/plenary.nvim'
@@ -25,6 +24,4 @@ return require('packer').startup(function(use)
 	use	'nvim-telescope/telescope.nvim'
 	-- Theme
 	use 'rose-pine/neovim'
-	
-
 end)
