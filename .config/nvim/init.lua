@@ -1,6 +1,5 @@
 vim.cmd.colorscheme("rose-pine-moon")
 
-
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
@@ -48,10 +47,4 @@ require('vgit').setup()
 
 require("config.toggleterm");
 require('live-server').setup();
-
-
-
-
-
-
 
