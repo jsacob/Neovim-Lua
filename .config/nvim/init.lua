@@ -1,5 +1,6 @@
 vim.cmd.colorscheme("rose-pine-moon")
 
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
@@ -51,4 +52,6 @@ require('live-server').setup();
 
 
 
--- git example for yt
+
+
+
